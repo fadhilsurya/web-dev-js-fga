@@ -2,7 +2,7 @@
 const { ResponseTemplate } = require('../helper/template.helper')
 
 function PrintSuccess(req, res, next) {
-
+    const { } = req.params.id
     console.log(` SELALU BERHASIL AKSES`)
     next()
 }
