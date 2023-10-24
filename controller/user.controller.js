@@ -9,7 +9,6 @@ function TestUserPost(req, res) {
 
     const { name, address } = req.body
 
-
     try {
         // if (!name || !address) {
         //     let resp = ResponseTemplate(null, 'bad request', new Error('bad request'), 400)

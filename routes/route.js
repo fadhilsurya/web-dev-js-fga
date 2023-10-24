@@ -5,12 +5,19 @@ const morgan = require('morgan')
 
 router.use(morgan('dev'))
 router.get('/ping', (req, res) => {
-    res.json({
-        "data": null,
-        "message": "PONG",
-        "status": 200
+    const pong = 'PING' || 'void'
+    res.render('index', {
+        pong
     })
+    return
 })
+
+router.post('/signup', (req, res) => {
+    const pong = 'PING' || 'void'
+    res.render('register')
+    return
+})
+
 router.use('/user', userRoute)
 
 

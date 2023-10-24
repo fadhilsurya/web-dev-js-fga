@@ -1,24 +1,30 @@
 
 const { ResponseTemplate } = require('../helper/template.helper')
+const Joi = require('joi');
+// function PrintSuccess(req, res, next) {
+//     const { } = req.params.id
+//     console.log(` SELALU BERHASIL AKSES`)
+//     next()
+// }
 
-function PrintSuccess(req, res, next) {
-    const { } = req.params.id
-    console.log(` SELALU BERHASIL AKSES`)
-    next()
-}
+// function PrintSuccessRoute(req, res, next) {
 
-function PrintSuccessRoute(req, res, next) {
-
-    console.log(` SELALU BERHASIL AKSES LEWAT ROUTE LEVEL`)
-    next()
-}
+//     console.log(` SELALU BERHASIL AKSES LEWAT ROUTE LEVEL`)
+//     next()
+// }
 
 function CheckPostReq(req, res, next) {
+    const schema = Joi.object({
+        name: Joi.string().alphanum().max(255).required(),
+        address: Joi.string().alphanum().required()
+    })
 
-    if (req.body.name == undefined || req.body.address == undefined) {
+    const { error } = schema.validate(req.body)
+    if (error) {
         let respErr = ResponseTemplate(null, 'invalid request',
-            new Error('invalid request'), 400)
+            error.details[0].message, 400)
         res.json(respErr)
+        return
     }
 
     next()
@@ -26,7 +32,5 @@ function CheckPostReq(req, res, next) {
 
 
 module.exports = {
-    PrintSuccess,
-    PrintSuccessRoute,
     CheckPostReq
 }
