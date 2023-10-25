@@ -16,7 +16,8 @@ const Joi = require('joi');
 function CheckPostReq(req, res, next) {
     const schema = Joi.object({
         name: Joi.string().alphanum().max(255).required(),
-        address: Joi.string().alphanum().required()
+        address: Joi.string().alphanum().required(),
+        email: Joi.string().alphanum().email().required()
     })
 
     const { error } = schema.validate(req.body)
