@@ -4,6 +4,7 @@ const userRoute = require('./user.route')
 const morgan = require('morgan')
 
 router.use(morgan('dev'))
+
 router.get('/ping', (req, res) => {
     const pong = 'PING' || 'void'
     res.render('index', {
