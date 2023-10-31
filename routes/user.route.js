@@ -5,8 +5,10 @@ const { CheckPostReq } = require('../middleware/middleware')
 
 /**
  * @swagger
- * /:
+ * /user:
  *   get:
+ *     tags:
+ *      - "user"
  *     summary: example to get user
  *     responses:
  *       200:
@@ -20,8 +22,10 @@ router.get('/', Get)
 
 /**
  * @swagger
- * /{id}:
+ * /user/{id}:
  *   get:
+ *     tags:
+ *      - "user" 
  *     summary: Get one user
  *     parameters:
  *       - in: path
