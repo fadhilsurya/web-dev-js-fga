@@ -10,7 +10,11 @@ const { CheckPostReq } = require('../middleware/middleware')
  *     summary: example to get user
  *     responses:
  *       200:
- *         description: Successful response
+ *         description: Success
+ *       400:
+ *         description: Bad Request
+ *       500:
+ *         description: Internal Server Error
  */
 router.get('/', Get)
 
@@ -28,8 +32,13 @@ router.get('/', Get)
  *           type: integer
  *     responses:
  *       200:
- *         description: Successful response
+ *         description: Success
+ *       400:
+ *         description: Bad Request
+ *       500:
+ *         description: Internal Server Error
  */
+
 router.get('/:id', GetByPK)
 
 // /**
