@@ -8,7 +8,7 @@ const { CheckPostReq } = require('../middleware/middleware')
  * /user:
  *   get:
  *     tags:
- *      - "user"
+ *      - "User"
  *     summary: example to get user
  *     responses:
  *       200:
@@ -25,7 +25,7 @@ router.get('/', Get)
  * /user/{id}:
  *   get:
  *     tags:
- *      - "user" 
+ *      - "User" 
  *     summary: Get one user
  *     parameters:
  *       - in: path
